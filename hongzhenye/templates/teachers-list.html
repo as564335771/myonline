@@ -24,7 +24,7 @@
 				</ul>
                 <div class="fr butler-num">共<span class="key">9</span>人&nbsp;&nbsp;&nbsp;</div>
 			</div>
-                {% for teacher in all_teachers %}
+                {% for teacher in all_teachers.object_list %}
                     <dl class="des">
                             <dt>
                                 <a href="{% url 'org:teacher_detail' teacher.id  %}">
@@ -92,7 +92,7 @@
             {% for hot_teacher in sorted_teacher %}
                   <dl class="des">
                         <span class="num fl">1</span>
-                        <a href="/diary/hk_detail/6/">
+                        <a href="{% url 'org:teacher_detail' hot_teacher.id %}">
                             <dt>
                                 <img width="50" height="50" class="scrollLoading"  src="{{ MEDIA_URL }}{{ hot_teacher.image }}"/>
                             </dt>

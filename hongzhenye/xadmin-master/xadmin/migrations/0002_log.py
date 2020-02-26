@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
             name='Log',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('action_time', models.DateTimeField(default=django.utils.timezone.now, editable=False, verbose_name='action time')),
+                ('action_time', models.DateTimeField(default=1, editable=False, verbose_name='action time')),
                 ('ip_addr', models.GenericIPAddressField(blank=True, null=True, verbose_name='action ip')),
                 ('object_id', models.TextField(blank=True, null=True, verbose_name='object id')),
                 ('object_repr', models.CharField(max_length=200, verbose_name='object repr')),

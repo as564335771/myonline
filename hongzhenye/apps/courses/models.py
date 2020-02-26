@@ -43,6 +43,14 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+class BannerCourse(Course):
+    '''显示轮播课程'''
+    class Meta:
+        verbose_name = '轮播课程'
+        verbose_name_plural = verbose_name
+        #这里必须设置proxy=True，这样就不会在生成一张表，而且具有Model的功能
+        proxy = True
+
 class Lesson(models.Model):
     course = models.ForeignKey(Course,verbose_name=u'课程',on_delete=models.CASCADE)
     name = models.CharField(max_length=100,verbose_name=u'章节名')

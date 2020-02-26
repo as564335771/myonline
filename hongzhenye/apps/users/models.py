@@ -18,16 +18,14 @@ class UserProfile(AbstractUser):
         verbose_name = '用户信息'
         verbose_name_plural = verbose_name
 
-    def __unicode__(self):
+
+    def __str__(self):
         return self.username
 
     def unread_nums(self):
         #用户消息未读数量
         from apps.operation.models import UserMessage
         return UserMessage.objects.filter(user=self.id,has_read=False).count()
-
-    def __str__(self):
-        return self.name
 
 class EmailVerifyRecord(models.Model):
     code = models.CharField(max_length=20,verbose_name=u'验证码')
@@ -45,6 +43,8 @@ class EmailVerifyRecord(models.Model):
 class Banner(models.Model):
     title = models.CharField(max_length=100,verbose_name=u'标题')
     url = models.URLField(max_length=200,verbose_name=u'访问地址')
+    image = models.ImageField(verbose_name=u'轮播图',upload_to='banner/%Y%m',max_length=100,default='')
+
     index = models.IntegerField(default=100,verbose_name=u'顺序')
     add_time = models.DateTimeField(default=datetime.now,verbose_name=u'添加时间')
 

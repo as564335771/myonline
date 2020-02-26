@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.views.static import serve
 
@@ -38,7 +38,7 @@ urlpatterns = [
     url('^reset/(?P<active_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
     url('^modify_pwd/$', ModifyPwdView.as_view(), name='modify_pwd'),
     url(r'^media/(?P<path>.*)$', serve,{'document_root':MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', serve,{'document_root':STATIC_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root':STATIC_ROOT}),
 
     #课程机构url配置
     url('^org/', include('organization.urls',namespace='org')),
