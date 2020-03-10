@@ -15,7 +15,24 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import include
+
 import xadmin
+from users.views import LoginView, IndexView, LogoutView
+
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
+    url('^$', IndexView.as_view(), name='index'),
+
+    url('^login/$', LoginView.as_view(), name='login'),
+    url('^logout/$', LogoutView.as_view(), name='logout'),
+
+    url('^captcha/', include('captcha.urls')),
+
+    #课程机构url配置
+    url('^org/', include('organization.urls',namespace='org')),
+    # 课程 相关url配置
+    url('^users/', include('users.urls', namespace='users')),
+    # 课程app相关url配置
+    url('^course/', include('courses.urls', namespace='course')),
 ]

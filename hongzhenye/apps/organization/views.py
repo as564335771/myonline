@@ -2,14 +2,12 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
 from django.views.generic.base import View
 
 from apps.organization.forms import UserAskForm
-# from operation.models import UserFavorite
 from apps.operation.models import UserFavorite
 from apps.courses.models import CourseOrg, Course
-from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+from pure_pagination import Paginator, PageNotAnInteger
 
 from apps.organization.models import CityDict, Teacher
 
