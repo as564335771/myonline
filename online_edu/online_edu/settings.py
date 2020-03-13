@@ -29,7 +29,7 @@ SECRET_KEY = '-!yi3!_9308%d+(+^n^=w&bf(!cw_6vf!b_wa1reh8906qd+k8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'courses',
     'captcha',
     'pure_pagination',
+    'DjangoUeditor',
 ]
 AUTH_USER_MODEL = 'users.UserProfile'
 
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'online_edu.urls'
@@ -76,6 +78,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                   #添加图片处理器，为了在课程列表中前面加上MEDIA_URL
+                 'django.template.context_processors.media',
+
             ],
         },
     },
@@ -139,7 +144,7 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+#
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
@@ -147,6 +152,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
 
 
 EMAIL_FROM = 'as564335771@sina.com'

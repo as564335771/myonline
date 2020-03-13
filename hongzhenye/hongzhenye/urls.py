@@ -23,7 +23,7 @@ import xadmin
 # from apps.organization.views import OrgView
 from apps.users.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, ResetView, ModifyPwdView, \
     LogoutView, IndexView
-from hongzhenye.settings import MEDIA_ROOT,STATIC_ROOT
+from hongzhenye.settings import MEDIA_ROOT
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -38,7 +38,8 @@ urlpatterns = [
     url('^reset/(?P<active_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
     url('^modify_pwd/$', ModifyPwdView.as_view(), name='modify_pwd'),
     url(r'^media/(?P<path>.*)$', serve,{'document_root':MEDIA_ROOT}),
-    re_path(r'^static/(?P<path>.*)$', serve,{'document_root':STATIC_ROOT}),
+    # re_path(r'^static/(?P<path>.*)$', serve,{'document_root':STATIC_ROOT}),
+    url('ueditor/', include('DjangoUeditor.urls')),
 
     #课程机构url配置
     url('^org/', include('organization.urls',namespace='org')),

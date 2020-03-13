@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db import models
 
 # Create your models here.
+from DjangoUeditor.models import UEditorField
 from organization.models import CourseOrg, Teacher
 
 
@@ -10,7 +11,9 @@ class Course(models.Model):
     course_org = models.ForeignKey(CourseOrg,verbose_name=u'课程机构',null=True,blank=True,on_delete=models.CASCADE)
     name = models.CharField(max_length=50,verbose_name=u'课程名')
     desc = models.CharField(max_length=300,verbose_name=u'课程描述')
-    detail = models.TextField(verbose_name=u'课程详情')
+    # detail = models.TextField(verbose_name=u'课程详情')
+    detail = UEditorField(verbose_name=u'课程详情', width=600, height=300, imagePath="courses/ueditor/",
+                          filePath="courses/ueditor/", default='')
     degree = models.CharField(verbose_name=u'难度',choices=(('cj','初级'),('zj','中级'),('gj','高级')),max_length=2)
     learn_times = models.IntegerField(default=0,verbose_name=u'学习时长(分钟)')
     teacher = models.ForeignKey(Teacher,verbose_name=u'讲师',null=True,blank=True,on_delete=models.CASCADE)
@@ -33,6 +36,8 @@ class Course(models.Model):
         #获取课程章节数
         return self.lesson_set.all().count()
 
+    get_zj_nums.short_description = '章节数'
+
     def get_learn_users(self):
         return self.usercourse_set.all()[:5]
 
@@ -40,8 +45,15 @@ class Course(models.Model):
         #获取课程所有章节
         return self.lesson_set.all()
 
+    def go_to(self):
+        from django.utils.safestring import mark_safe
+        # mark_safe后就不会转义了
+        return mark_safe("<a href='https://www.baidu.com'>跳转</a>")
+    go_to.short_description = '跳转'
+
     def __str__(self):
         return self.name
+
 
 class BannerCourse(Course):
     '''显示轮播课程'''

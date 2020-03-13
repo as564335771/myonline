@@ -184,20 +184,20 @@ class AddFavView(View):
         if exist_records:
             #如果记录已经存在，则表示用户取消收藏
             exist_records.delete()
-            if int(type) == 1:
-                course = Course.objects.get(id=int(id))
+            if int(fav_type) == 1:
+                course = Course.objects.get(id=int(fav_id))
                 course.fav_nums -= 1
                 if course.fav_nums < 0:
                     course.fav_nums = 0
                 course.save()
-            elif int(type) == 2:
-                org = CourseOrg.objects.get(id=int(id))
+            elif int(fav_type) == 2:
+                org = CourseOrg.objects.get(id=int(fav_id))
                 org.fav_nums -= 1
                 if org.fav_nums < 0:
                     org.fav_nums = 0
                 org.save()
-            elif int(type) == 3:
-                teacher = Teacher.objects.get(id=int(id))
+            elif int(fav_type) == 3:
+                teacher = Teacher.objects.get(id=int(fav_id))
                 teacher.fav_nums -= 1
                 if teacher.fav_nums < 0:
                     teacher.fav_nums = 0
@@ -211,16 +211,16 @@ class AddFavView(View):
                 user_fav.user = request.user
                 user_fav.save()
 
-                if int(type) == 1:
-                    course = Course.objects.get(id=int(id))
+                if int(fav_type) == 1:
+                    course = Course.objects.get(id=int(fav_id))
                     course.fav_nums += 1
                     course.save()
-                elif int(type) == 2:
-                    org = CourseOrg.objects.get(id=int(id))
+                elif int(fav_type) == 2:
+                    org = CourseOrg.objects.get(id=int(fav_id))
                     org.fav_nums += 1
                     org.save()
-                elif int(type) == 3:
-                    teacher = Teacher.objects.get(id=int(id))
+                elif int(fav_type) == 3:
+                    teacher = Teacher.objects.get(id=int(fav_id))
                     teacher.fav_nums += 1
                     teacher.save()
                 return HttpResponse('{"status":"success","msg":"已收藏"}', content_type='application/json')

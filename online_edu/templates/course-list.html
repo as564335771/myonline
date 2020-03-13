@@ -82,7 +82,7 @@
                         {% for hot_course in hot_courses %}
                      <dl>
 						<dt>
-							<a target="_blank" href="">
+							<a target="_blank" href="{% url 'course:course_detail' hot_course.id %}">
 								<img width="240" height="220" class="scrollLoading" src="{{ MEDIA_URL }}{{ hot_course.image }}"/>
 							</a>
 						</dt>
@@ -92,33 +92,6 @@
 						</dd>
 					</dl>
                         {% endfor %}
-
-
-                    <dl>
-						<dt>
-							<a target="_blank" href="">
-								<img width="240" height="220" class="scrollLoading" src="../media/courses/2016/12/python面向对象.jpg"/>
-							</a>
-						</dt>
-						<dd>
-							<a target="_blank" href=""><h2> python面向对象</h2></a>
-							<span class="fl">难度：<i class="key">中级</i></span>
-						</dd>
-					</dl>
-
-                    <dl>
-						<dt>
-							<a target="_blank" href="">
-								<img width="240" height="220" class="scrollLoading" src="../media/courses/2016/12/python文件处理.jpg"/>
-							</a>
-						</dt>
-						<dd>
-							<a target="_blank" href=""><h2> python文件处理</h2></a>
-							<span class="fl">难度：<i class="key">中级</i></span>
-						</dd>
-					</dl>
-
-
 
 				</div>
 			</div>

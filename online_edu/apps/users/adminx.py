@@ -5,11 +5,11 @@ from xadmin import views
 
 class BaseSetting(object):
     enable_themes = True
-    # use_bootswatch = True
+    use_bootswatch = True
 
 class GlobalSettings(object):
-    site_title = '我的后台管理系统'
-    site_footer = '全栈工程师'
+    site_title = '测试管理系统'
+    site_footer = '测试'
     menu_style = 'accordion'
 
 class EmailVerifyRecordAdmin(object):

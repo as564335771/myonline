@@ -147,7 +147,7 @@ class VideoPlayView(View):
             user_course = UserCourse(user=request.user, course=course)
             user_course.save()
         user_courses = UserCourse.objects.filter(course=course)
-        user_ids = [user_courses.user.id for user_courses in user_courses]
+        user_ids = [user_course.user.id for user_course in user_courses]
         all_user_courses = UserCourse.objects.filter(user_id__in=user_ids)
         # 取出所有课程ID
         course_ids = [user_courses.course.id for user_courses in all_user_courses]

@@ -16,9 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include
+from django.views.static import serve
+# from online_edu.settings import  STATIC_ROOT
 
 import xadmin
-from users.views import LoginView, IndexView, LogoutView
+from online_edu.settings import MEDIA_ROOT
+from users.views import LoginView, IndexView, LogoutView, ResetView, ForgetPwdView, ActiveUserView, RegisterView, \
+    ModifyPwdView
+import DjangoUeditor
+
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -28,6 +34,13 @@ urlpatterns = [
     url('^logout/$', LogoutView.as_view(), name='logout'),
 
     url('^captcha/', include('captcha.urls')),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+    url('^reset/(?P<active_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
+    url('^forget/$', ForgetPwdView.as_view(), name='forget_pwd'),
+    url('^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name='user_active'),
+    url('^register/$', RegisterView.as_view(), name='register'),
+    url('^modify_pwd/$', ModifyPwdView.as_view(), name='modify_pwd'),
+    # url(r'^static/(?P<path>.*)$', serve, {'document_root': STATIC_ROOT}),
 
     #课程机构url配置
     url('^org/', include('organization.urls',namespace='org')),
@@ -35,4 +48,11 @@ urlpatterns = [
     url('^users/', include('users.urls', namespace='users')),
     # 课程app相关url配置
     url('^course/', include('courses.urls', namespace='course')),
+
+    url('ueditor/', include('DjangoUeditor.urls')),
 ]
+# 全局404页面配置
+handler404 = 'users.views.pag_not_found'
+
+# 全局500页面配置
+handler500 = 'users.views.page_error'

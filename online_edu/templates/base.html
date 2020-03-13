@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     {% else %}
-                    <a style="color:white" class="fr registerbtn" href="register.html">注册</a>
+                    <a style="color:white" class="fr registerbtn" href="{% url 'register' %}">注册</a>
                         <a style="color:white" class="fr loginbtn" href="{% url 'login' %}">登录</a>
                     {% endif %}
 
@@ -202,7 +202,7 @@
                 <dl class="des difdes">
                     <dt>
                         <a href="org-detail-homepage.html">
-                            <img width="200" height="120" class="scrollLoading" data-url="{% static 'css/animate.css' %}media/org/2016/11/bjdx.jpg"/>
+                            <img width="200" height="120" class="scrollLoading" data-url="{% static 'media/org/2016/11/bjdx.jpg' %}"/>
                         </a>
                     </dt>
                     <dd>
@@ -245,9 +245,9 @@
                                  <h1>清华大学</h1>
                                  <div class="pic fl">
 
-                                         <img src="{% static 'css/animate.css' %}images/authentication.png"/>
+                                         <img src="{% static 'images/authentication.png' %}"/>
 
-                                         <img src="{% static 'css/animate.css' %}images/gold.png"/>
+                                         <img src="{% static 'images/gold.png' %}"/>
 
                                  </div>
                              </a>
@@ -270,7 +270,7 @@
                 <dl class="des difdes">
                     <dt>
                         <a href="org-detail-homepage.html">
-                            <img width="200" height="120" class="scrollLoading" data-url="{% static 'css/animate.css' %}media/org/2016/11/njdx.jpg"/>
+                            <img width="200" height="120" class="scrollLoading" data-url="{% static 'media/org/2016/11/njdx.jpg' %}"/>
                         </a>
                     </dt>
                     <dd>
@@ -279,9 +279,9 @@
                                  <h1>南京大学</h1>
                                  <div class="pic fl">
 
-                                         <img src="{% static 'css/animate.css' %}images/authentication.png"/>
+                                         <img src="{% static 'images/authentication.png' %}"/>
 
-                                         <img src="{% static 'css/animate.css' %}images/gold.png"/>
+                                         <img src="{% static 'images/gold.png' %}"/>
 
                                  </div>
                              </a>
@@ -304,7 +304,7 @@
                 <dl class="des difdes">
                     <dt>
                         <a href="org-detail-homepage.html">
-                            <img width="200" height="120" class="scrollLoading" data-url="{% static 'css/animate.css' %}media/org/2016/11/imooc_klgAUn5.png"/>
+                            <img width="200" height="120" class="scrollLoading" data-url="{% static 'media/org/2016/11/imooc_klgAUn5.png' %}"/>
                         </a>
                     </dt>
                     <dd>
@@ -313,9 +313,9 @@
                                  <h1>慕课网2</h1>
                                  <div class="pic fl">
 
-                                         <img src="{% static 'css/animate.css' %}images/authentication.png"/>
+                                         <img src="{% static 'images/authentication.png' %}"/>
 
-                                         <img src="{% static 'css/animate.css' %}images/gold.png"/>
+                                         <img src="{% static 'images/gold.png' %}"/>
 
                                  </div>
                              </a>
@@ -427,9 +427,9 @@
 		<div class="footer">
 			<div class="wp">
 				<ul class="cont">
-					<li class="logo"><a href=""><img src="{% static 'css/animate.css' %}images/footlogo.png"/></a></li>
-					<li class="code"><img src="{% static 'css/animate.css' %}images/code.jpg"/><p class="center">扫描关注微信</p></li>
-					<li class="third"><img class="fl" src="{% static 'css/animate.css' %}images/tell.png"/><p class="tell">33333333</p><p class="time">周一至周日 9:00-18:00</p></li>
+					<li class="logo"><a href=""><img src="{% static 'images/footlogo.png' %}"/></a></li>
+					<li class="code"><img src="{% static 'images/code.jpg' %}"/><p class="center">扫描关注微信</p></li>
+					<li class="third"><img class="fl" src="{% static 'images/tell.png' %}"/><p class="tell">33333333</p><p class="time">周一至周日 9:00-18:00</p></li>
 				</ul>
 
 			</div>

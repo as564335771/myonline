@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/extra_apps" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/apps" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DjangoUeditor" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (hongzhenye)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -25,7 +26,6 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
   </component>
   <component name="TestRunnerService">
-    <option name="projectConfiguration" value="pytest" />
     <option name="PROJECT_TEST_RUNNER" value="pytest" />
   </component>
 </module>

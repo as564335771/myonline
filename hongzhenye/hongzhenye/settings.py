@@ -28,7 +28,7 @@ sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))
 SECRET_KEY = 'l@+b80c-v5psi$61il70debxyf5!n2%7u$v!o*@3hhs)n015$9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'hongzhenye',
     'captcha',
     'pure_pagination',
+    'DjangoUeditor',
 
 
 
@@ -164,6 +165,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 

@@ -43,7 +43,7 @@ def send_register_email(email,send_type='register'):
             pass
     elif send_type == 'forget':
         email_title = '慕学在线网注册激活链接'
-        email_body = '请点击下面的链接重置密码:http://127.0.0.1:1234/reset/{0}'.format(code)
+        email_body = '请点击下面的链接重置密码:http://127.0.0.1:4567/reset/{0}'.format(code)
 
         send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
         if send_status:
